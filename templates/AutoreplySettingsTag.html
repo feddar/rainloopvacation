@@ -1,0 +1,73 @@
+<div>
+	<div class="form-horizontal">
+		<div class="legend">
+			<span class="i18n" data-i18n="VACATION_SETTINGS_PLUGIN/TITLE"></span>
+			&nbsp;&nbsp;&nbsp;
+			<i class="icon-spinner animated" style="margin-top: 5px" data-bind="visible: loading"></i>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<div data-bind="component: {
+					name: 'Checkbox',
+					params: {
+						label: 'VACATION_SETTINGS_PLUGIN/LABEL_ENABLE',
+						value: vacationEnabled
+					}
+				}"></div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<span class="i18n" data-i18n="VACATION_SETTINGS_PLUGIN/LABEL_DATE_START"></span>
+			</label>
+			<div class="controls">
+				<input type="text" data-bind="value: startY, enable: !savingOrLoading()" size="4" maxlength="4" style="width: auto"/>
+				<input type="text" data-bind="value: startM, enable: !savingOrLoading()" size="2" maxlength="2" style="width: auto" />
+				<input type="text" data-bind="value: startD, enable: !savingOrLoading()" size="2" maxlength="2" style="width: auto"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<span class="i18n" data-i18n="VACATION_SETTINGS_PLUGIN/LABEL_DATE_END"></span>
+			</label>
+			<div class="controls">
+				<input type="text" data-bind="value: endY, enable: !savingOrLoading()" size="4" maxlength="4" style="width: auto"/>
+				<input type="text" data-bind="value: endM, enable: !savingOrLoading()" size="2" maxlength="2" style="width: auto" />
+				<input type="text" data-bind="value: endD, enable: !savingOrLoading()" size="2" maxlength="2" style="width: auto"/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<span class="i18n" data-i18n="VACATION_SETTINGS_PLUGIN/LABEL_SUBJECT"></span>
+			</label>
+			<div class="controls">
+				<input type="text" data-bind="value: msgsubject, enable: !savingOrLoading()" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">
+				<span class="i18n" data-i18n="VACATION_SETTINGS_PLUGIN/LABEL_BODY"></span>
+			</label>
+			<div class="controls">
+				<div data-bind="component: {
+								name: 'TextArea',
+								params: {
+									value: msgbody,
+									placeholder: '',
+								}
+							}">
+				</div>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<button class="btn" data-bind="click: vacationAjaxSaveData, enable: !savingOrLoading()">
+					<i data-bind="css: {'icon-floppy': !saving(), 'icon-spinner animated': saving()}" class="icon-floppy"></i>
+					&nbsp;&nbsp;
+					<span class="i18n" data-i18n="VACATION_SETTINGS_PLUGIN/BUTTON_SAVE"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
