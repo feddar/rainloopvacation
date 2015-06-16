@@ -62,7 +62,7 @@
 
 		<div class="control-group">
 			<div class="controls">
-				<button class="btn" data-bind="click: vacationAjaxSaveData, enable: !savingOrLoading()">
+				<button class="btn" data-bind="click: vacationAjaxSaveData, enable: !savingOrLoading(), css: { 'btn-success': autoreplyUpdateSuccess, 'btn-danger': autoreplyUpdateError }">
 					<i data-bind="css: {'icon-floppy': !saving(), 'icon-spinner animated': saving()}" class="icon-floppy"></i>
 					&nbsp;&nbsp;
 					<span class="i18n" data-i18n="VACATION_SETTINGS_PLUGIN/BUTTON_SAVE"></span>

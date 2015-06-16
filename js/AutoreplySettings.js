@@ -21,6 +21,9 @@
 		this.loading = ko.observable(false);
 		this.saving = ko.observable(false);
 
+		this.autoreplyUpdateSuccess = ko.observable(false);
+		this.autoreplyUpdateError = ko.observable(false);
+
 		this.savingOrLoading = ko.computed(function () {
 			return this.loading() || this.saving();
 		}, this);
@@ -41,13 +44,15 @@
 
 			self.saving(false);
 
-			if (window.rl.Enums.StorageResultType.Success === sResult && oData && oData.Result)
+			if (window.rl.Enums.StorageResultType.Success === sResult && oData && (oData.Result > 0))
 			{
-				// true
+				self.autoreplyUpdateError(false);
+				self.autoreplyUpdateSuccess(true);
 			}
 			else
 			{
-				// false
+				self.autoreplyUpdateError(true);
+				self.autoreplyUpdateSuccess(false);
 			}
 
 		}, 'AjaxSaveAutoreplySettings', {
