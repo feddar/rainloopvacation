@@ -27,19 +27,6 @@ class VacationSettingsTabPlugin extends \RainLoop\Plugins\AbstractPlugin
 	 * @return array
 	 */
 
-
-	public function ReadDate($name) {
-		$y = $this->Config()->Get('plugin', "$name_year");
-		$m = $this->Config()->Get('plugin', "$name_month");
-		$d = $this->Config()->Get('plugin', "$name_day");
-
-		return array($y,$m,$d);
-	}
-
-	public function ParseDate($date) {
-
-	}
-
 	public function Settings() {
 		return array(
 			'sType' => $this->Config()->Get('plugin', 'dbtype', ''),
@@ -94,8 +81,6 @@ class VacationSettingsTabPlugin extends \RainLoop\Plugins\AbstractPlugin
 		}
 		catch (\Exception $oException)
 		{
-			file_put_contents('/tmp/log.log', print_r($oException, true), FILE_APPEND);
-
 			if ($this->oLogger)
 			{
 				$this->oLogger->WriteException($oException);
