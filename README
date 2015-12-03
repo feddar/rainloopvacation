@@ -1,1 +1,6 @@
 Plugin adds functionality to set autoreply settings through a series of DB queries.
+
+======
+Troubleshooting
+
+  * Please rename the directory to vacationsettingstab (without the dashes) as it caused problems for some people
